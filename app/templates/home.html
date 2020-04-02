@@ -4,9 +4,9 @@
     <div class="row items">
     {% for item in items %}
         <div class="card col-md-3" style="width: 18rem;">
-            <img class="card-img-top" src={{item.auction_image}} alt="Card image cap">
+            <img class="card-img-top" src={{url_for('static', filename='images/'+item.auction_image)}} alt="Card image cap">
             <div class="card-body">
-            <h5 class="card-title">{{item.name}}</h5>
+            <h5 class="card-title">{{item.name.capitalize()}}</h5>
             <p class="card-text descr">{{item.description}} </p>
             <p>Minimum Price: <span class="font-weight-bold">{{item.min_price}} €</span></p>
             <p>End Time: <span class="font-weight-bold">{{item.end_day}}</span></p>

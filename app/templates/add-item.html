@@ -7,7 +7,7 @@
         <h4 class="card-title mt-2">{{title}}</h4>
     </header>
     <article class="card-body">
-    <form action="/add" method="POST">
+    <form action="/add" method="POST" enctype="multipart/form-data">
         {{form.hidden_tag()}}
         <div class="form-group">
             <label>{{form.name.label()}}</label>  
@@ -78,14 +78,14 @@
     <div class="form-group">
         <label>{{form.auction_image.label()}}</label>   
         {% if form.auction_image.errors %}
-        {{form.auction_image(class="form-control is-invalid")}}
+        {{form.auction_image(class="form-control-file is-invalid")}}
         <div class="invalid-feedback">
             {% for error in form.auction_image.errors %}
             <span>{{error}}</span>
             {% endfor %}
         </div>
     {% else %}
-        {{form.auction_image(class="form-control")}}
+        {{form.auction_image(class="form-control-file")}}
     {% endif %} 
     </div> <!-- form-group end.// -->  
     <div class="form-group">
