@@ -24,12 +24,29 @@
                 <a class="nav-link" href={{url_for('about')}}>About</a>
                 </li>
             </ul>
-            <a class="nav-link text-white" href={{url_for('login')}}>Login</a>
-            <a class="nav-link text-white" href={{url_for('register')}}>Register</a>
+            {% if current_user.is_authenticated %}
+            <div class="dropdown">
+                <button class="text-white btn dropdown-toggle bg-info" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  {{current_user.username}}
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href={{url_for('add_item')}}>Add Item</a>
+                  <a class="dropdown-item" href={{url_for('home')}}>My Items</a>
+                  <a class="dropdown-item" href={{url_for('home')}}>Profile</a>
+                  <div class="border-bottom"></div>
+                  <a class="dropdown-item" href={{url_for('logout')}}>Logout</a>
+                </div>
+              </div>
+                
+            {% else %}
+                <a class="nav-link text-white" href={{url_for('login')}}>Login</a>
+                <a class="nav-link text-white" href={{url_for('register')}}>Register</a>
+            {% endif %}
+            
             </div>
         </div>
     </nav>
-    <div class="container">
+    <div class="container mt-4">
         {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
                     {% for category, message in messages %}

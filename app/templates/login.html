@@ -1,12 +1,11 @@
 {% extends 'layout.html' %}
 {% block content %}
-    <h1>{{title}}</h1>
     <div class="row justify-content-center">
         <div class="col-md-6">
         <div class="card">
         <header class="card-header">
             <a href="/register" class="float-right btn btn-outline-primary mt-1">Sign Up</a>
-            <h4 class="card-title mt-2">Sign In</h4>
+            <h4 class="card-title mt-2">{{title}}</h4>
         </header>
         <article class="card-body">
         <form action="" method="POST">

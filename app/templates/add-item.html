@@ -1,0 +1,126 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+    <div class="card">
+    <header class="card-header">
+        <h4 class="card-title mt-2">{{title}}</h4>
+    </header>
+    <article class="card-body">
+    <form action="/add" method="POST">
+        {{form.hidden_tag()}}
+        <div class="form-group">
+            <label>{{form.name.label()}}</label>  
+            {% if form.name.errors %}
+                {{form.name(class="form-control is-invalid")}}
+                <div class="invalid-feedback">
+                    {% for error in form.name.errors %}
+                    <span>{{error}}</span>
+                    {% endfor %}
+                </div>
+            {% else %}
+                {{form.name(class="form-control")}}
+            {% endif %} 
+            </div> <!-- form-group end.// -->
+        <div class="form-group">
+            <label>{{form.category.label()}}</label>   
+            {% if form.category.errors %}
+            {{form.category(class="form-control is-invalid")}}
+            <div class="invalid-feedback">
+                {% for error in form.category.errors %}
+                <span>{{error}}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{form.category(class="form-control")}}
+        {% endif %} 
+        </div> <!-- form-group end.// -->
+
+        <div class="form-group">
+            <label>{{form.description.label()}}</label>   
+            {% if form.description.errors %}
+            {{form.description(class="form-control is-invalid")}}
+            <div class="invalid-feedback">
+                {% for error in form.description.errors %}
+                <span>{{error}}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{form.description(class="form-control")}}
+        {% endif %} 
+        </div> <!-- form-group end.// -->  
+        <div class="form-group">
+            <label>{{form.country.label()}}</label>   
+            {% if form.country.errors %}
+            {{form.country(class="form-control is-invalid")}}
+            <div class="invalid-feedback">
+                {% for error in form.country.errors %}
+                <span>{{error}}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{form.country(class="form-control")}}
+        {% endif %} 
+        </div> <!-- form-group end.// -->  
+        <div class="form-group">
+            <label>{{form.min_price.label()}}</label>   
+            {% if form.min_price.errors %}
+            {{form.min_price(class="form-control is-invalid")}}
+            <div class="invalid-feedback">
+                {% for error in form.min_price.errors %}
+                <span>{{error}}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{form.min_price(class="form-control")}}
+        {% endif %} 
+        </div> <!-- form-group end.// -->  
+    <div class="form-group">
+        <label>{{form.auction_image.label()}}</label>   
+        {% if form.auction_image.errors %}
+        {{form.auction_image(class="form-control is-invalid")}}
+        <div class="invalid-feedback">
+            {% for error in form.auction_image.errors %}
+            <span>{{error}}</span>
+            {% endfor %}
+        </div>
+    {% else %}
+        {{form.auction_image(class="form-control")}}
+    {% endif %} 
+    </div> <!-- form-group end.// -->  
+    <div class="form-group">
+        <label>{{form.end_day.label()}}</label>   
+        {% if form.end_day.errors %}
+        {{form.end_day(class="form-control is-invalid")}}
+        <div class="invalid-feedback">
+            {% for error in form.end_day.errors %}
+            <span>{{error}}</span>
+            {% endfor %}
+        </div>
+    {% else %}
+        {{form.end_day(class="form-control")}}
+    {% endif %} 
+    </div> <!-- form-group end.// -->  
+    <div class="form-group">
+        <label>{{form.time.label()}}</label>   
+        {% if form.time.errors %}
+        {{form.time(class="form-control is-invalid")}}
+        <div class="invalid-feedback">
+            {% for error in form.time.errors %}
+            <span>{{error}}</span>
+            {% endfor %}
+        </div>
+    {% else %}
+        {{form.time(class="form-control")}}
+    {% endif %} 
+    </div> <!-- form-group end.// -->  
+        <div class="form-group">
+             {{form.submit(class="btn btn-primary btn-block")}}
+        </div> <!-- form-group// -->                                             
+    </form>
+    </article> <!-- card-body end .// -->
+    </div> <!-- card.// -->
+    </div> <!-- col.//-->
+    
+    </div> <!-- row.//-->
+{% endblock content%}

@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <h1>{{title}}</h1>
+    <div class="row items">
+    {% for item in items %}
+        <div class="card col-md-3" style="width: 18rem;">
+            <img class="card-img-top" src={{item.auction_image}} alt="Card image cap">
+            <div class="card-body">
+            <h5 class="card-title">{{item.name}}</h5>
+            <p class="card-text descr">{{item.description}} </p>
+            <p>Minimum Price: <span class="font-weight-bold">{{item.min_price}} €</span></p>
+            <p>End Time: <span class="font-weight-bold">{{item.end_day}}</span></p>
+            <a href="#" class="btn btn-primary">Buy</a>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+    
+{% endblock content%}
