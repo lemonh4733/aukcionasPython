@@ -31,7 +31,7 @@
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   <a class="dropdown-item" href={{url_for('add_item')}}>Add Item</a>
-                  <a class="dropdown-item" href={{url_for('home')}}>My Items</a>
+                  <a class="dropdown-item" href={{url_for('items', user_id=current_user.id)}}>My Items</a>
                   <a class="dropdown-item" href={{url_for('home')}}>Profile</a>
                   <div class="border-bottom"></div>
                   <a class="dropdown-item" href={{url_for('logout')}}>Logout</a>

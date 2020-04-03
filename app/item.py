@@ -7,6 +7,7 @@ class Item(db.Model):
     description = db.Column(db.String(80), nullable=False)
     country = db.Column(db.String(80), nullable=False)
     min_price = db.Column(db.Integer, nullable=False)
+    offer = db.relationship('Offer', backref='offer', lazy=True)
     auction_image = db.Column(db.String(256), nullable=False)
     end_day = db.Column(db.DateTime, nullable=False)
     time = db.Column(db.Integer, nullable=False)

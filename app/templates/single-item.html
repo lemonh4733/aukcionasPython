@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="row bg-white">
+        <div class="col-4">
+            <img src={{url_for('static', filename='images/'+item.auction_image)}} alt="img">
+        </div>
+        <div class="col-8">
+            <h3>{{title.capitalize()}}</h3>
+            <p class="text-muted">{{item.category}}</p> 
+            <p><span class="font-weight-bold">Time left</span>:   {{item.end_day}}</p>
+            <div class="bid">
+                <div class="container">
+                        <h3>{{item.min_price}}€ <a style="font-size: 18px;" href={{url_for('offers', item_id=item.id)}}>({{offerLen}})</a></h3>
+                    <form action={{url_for('offer', item_id=item.id)}} method="POST">
+                            {% if form.offer.errors %}
+                                {{form.offer(class="form-control is-invalid")}}
+                                <div class="invalid-feedback">
+                                    {% for error in form.offer.errors %}
+                                    <span>{{error}}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{form.offer(class="form-control", placeholder='Enter your bid')}}
+                            {% endif %} 
+                        <input type="submit" class="form-control btn-primary" value="Submit bid">
+                    </form>
+                </div>
+            </div>
+            <h3 class="infobar bg-info text-white">Info:</h3>
+            <p> <span class="font-weight-bold">Country</span>: {{item.country}}</p>
+            <p> <span class="font-weight-bold">Description</span>: {{item.description}}</p>
+        </div>
+    </div>
+{% endblock content%}

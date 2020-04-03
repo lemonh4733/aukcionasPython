@@ -26,3 +26,6 @@ class AddItemForm(FlaskForm):
     end_day = DateField(label='End time',validators=[DataRequired()],format = "%Y-%m-%d")
     time = IntegerField('Time', validators=[DataRequired(), Length(min=1, max=20)])
     submit = SubmitField('Add')
+class BidForm(FlaskForm):
+    offer = IntegerField('Enter your bid', validators=[DataRequired(), Length(min=1, max=20)])
+    submit = SubmitField('Add')

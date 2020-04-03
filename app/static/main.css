@@ -1,5 +1,79 @@
+body {
+  background-color: rgb(238, 236, 236);
+}
+img {
+  max-width: 100%;
+}
+h3 {
+  margin: 0;
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1400px;
+}
+}
 .descr {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
+.item {
+  height: 191px;
+  margin: 2px;
+  position: relative;
+}
+.item .price {
+  background-color: #448629;
+  width: 65%;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  padding: 2px;
+  font-size: 18px;
+  left: 0;
+  color: #fff;
+  z-index: 1;
+}
+.col-md-3 {
+  padding: 0;
+}
+.item:hover .overlay {
+  opacity: 1;
+}
+.item {
+  text-align: center;
+}
+.overlay {
+  width: 100%;
+  height: 191px;
+  background-color: rgba(69, 69, 80, 0.61);
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  transition: .5s ease;
+  padding: 15px;
+}
+@media (min-width: 768px) {
+  .col-md-3 {
+    flex: 0 0 24%;
+    max-width: 25%;
+}
+.row {
+  padding: 10px;
+}
+.bid {
+  background-color: #e2e2e2;
+  padding: 10px;
+}
+.bid .container {
+  width: 50%;
+}
+input {
+  margin: 8px;
+}
+.infobar {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  margin: 10px 0 10px 0;
+  padding: 3px;
+}

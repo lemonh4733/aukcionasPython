@@ -10,4 +10,6 @@ login_manager = LoginManager(App)
 login_manager.login_view = "login"
 login_manager.login_message_category = "danger"
 
-import app.routes
+import app.controllers.home
+import app.controllers.auth
+import app.controllers.item
