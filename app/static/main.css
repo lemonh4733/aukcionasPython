@@ -58,6 +58,7 @@ h3 {
     flex: 0 0 24%;
     max-width: 25%;
 }
+}
 .row {
   padding: 10px;
 }
@@ -76,4 +77,30 @@ input {
   border-top-right-radius: 5px;
   margin: 10px 0 10px 0;
   padding: 3px;
+}
+.banner {
+  position: relative;
+  height: 120px;
+  background: url('/static/style-images/banner.png');
+}
+.banner .btn {
+  background-color: #5caeff;
+  border-radius: 30px;
+  position: absolute;
+  right: 50px;
+  bottom: 40%;
+}
+body > div > div.banner > h2 {
+  padding: 40px;
+}
+
+@media (max-width: 992px) {
+  .banner {
+  display: none;
+  }
+}
+footer {
+  margin: 120px 0 0 0;
+  background-color: #414040;
+  height: 300px;
 }

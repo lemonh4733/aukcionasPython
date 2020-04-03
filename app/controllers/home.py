@@ -6,11 +6,13 @@ from app.offer import Offer
 from pprint import pprint
 
 @App.route('/')
-@App.route('/home')
 def home():
     items = Item.query.order_by(Item.id.desc()).limit(4)
     items2 = Item.query.order_by(Item.id.desc()).offset(4).limit(4)
-    return render_template('home.html', title="Home Page", items=items, items2=items2)
+
+    trending = Item.query.order_by(Item.views.desc()).limit(4)
+    trending2 = Item.query.order_by(Item.views.desc()).offset(4).limit(4)
+    return render_template('home.html', title="Home Page", items=items, items2=items2, trending=trending, trending2=trending2)
 
 @App.route('/about')
 def about():
