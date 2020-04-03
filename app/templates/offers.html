@@ -4,19 +4,19 @@
     <table class="table table-dark">
         <thead>
           <tr>
-            <th scope="col">id</th>
-            <th scope="col">User ID</th>
-            <th scope="col">Item ID</th>
+            <th scope="col">User</th>
+            <th scope="col">User Email</th>
+            <th scope="col">Item Name</th>
             <th scope="col">Price</th>
           </tr>
         </thead>
         <tbody>
-        {% for offer in offers %}
+        {% for ofr in offers %}
           <tr>
-            <td>{{offer.id}}</td>
-            <td>{{offer.user_id}}</td>
-            <td>{{offer.item_id}}</td>
-            <td>{{offer.price}}</td>
+            <td>{{ofr.usr_offer.username}}</td>
+            <td>{{ofr.usr_offer.email}}</td>
+            <td><a class="text-white" href={{url_for('item', item_id=ofr.offer.id)}}>{{ofr.offer.name.capitalize()}}</a></td>
+            <td>{{ofr.price}}</td>
           </tr>
           {% endfor %}
         </tbody>

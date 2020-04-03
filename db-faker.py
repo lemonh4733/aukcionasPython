@@ -19,7 +19,7 @@ categories = [
 def create_admin():
     username = 'admin'
     password = 'admin123'
-    email = 'default.jpg'
+    email = 'info@auction.lt'
 
     new_user = User(username=username, email=email, password=generate_password_hash(password, "sha256"))
     db.session.add(new_user)

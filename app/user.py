@@ -11,4 +11,5 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(80), unique=True, nullable=False)
     password = db.Column(db.String(80), nullable=False)
     items = db.relationship('Item', backref='owner', lazy=True)
+    offer = db.relationship('Offer', backref='usr_offer', lazy=True)
 

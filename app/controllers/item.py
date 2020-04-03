@@ -47,7 +47,6 @@ def add_item_post():
     return redirect(url_for('home'))
 
 @App.route('/item/<int:item_id>', methods=['GET'])
-@login_required
 def item(item_id):
     form = BidForm()
     item = Item.query.get_or_404(item_id)
@@ -74,17 +73,21 @@ def offer(item_id):
 
     print(price)
     print(item.min_price)
-    if item.min_price < price:
-        priceUpdate = Item.query.filter_by(id=item_id).first()
-        priceUpdate.min_price = price
-        db.session.commit()
-        flash('Bid successful!', 'success')
+    if item.user_id == current_user.id:
+        flash('You cant bid on your own item!', 'info')
     else:
-        flash('Price too low!', 'info')
+        if item.min_price < price:
+            priceUpdate = Item.query.filter_by(id=item_id).first()
+            priceUpdate.min_price = price
+            db.session.commit()
+            flash('Bid successful!', 'success')
+        else:
+            flash('Price too low!', 'info')
     return redirect(url_for('item',item_id=item_id))
 
 @App.route('/offers/<int:item_id>', methods=['GET'])
-@login_required
 def offers(item_id):
-    offers = Offer.query.filter_by(item_id=item_id)
+    offers = (db.session.query(Offer).join(User).join(Item, Item.id == Offer.item_id)).filter_by(id=item_id).all()
+
+    #offers = db.session.query(Offer, Item).join(Item, Item.id == Offer.item_id).all()
     return render_template('offers.html', title="Offers", offers=offers)
