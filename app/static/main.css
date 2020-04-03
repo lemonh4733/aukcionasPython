@@ -4,6 +4,12 @@ body {
 img {
   max-width: 100%;
 }
+.container:nth-child(2) {
+  min-height: 50vh;
+}
+nav {
+  background-color: rgb(226, 151, 12);
+}
 h3 {
   margin: 0;
 }
@@ -43,7 +49,7 @@ h3 {
 .item {
   text-align: center;
 }
-.overlay {
+.item .overlay {
   width: 100%;
   height: 191px;
   background-color: rgba(69, 69, 80, 0.61);
