@@ -19,9 +19,12 @@
           <ul style="margin-left: 17px;" class="navbar-nav mr-auto row">
                 <li class="nav-item">
                 <a class="nav-link" href={{url_for('home')}}>Home</a>
-                </li>
                 <li class="nav-item">
                 <a class="nav-link" href={{url_for('about')}}>About</a>
+                </li>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href={{url_for('all')}}>All</a>
                 </li>
             </ul>
             {% if current_user.is_authenticated %}

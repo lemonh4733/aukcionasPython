@@ -46,11 +46,13 @@ def add_item_post():
     flash('Item post created!', 'success')
     return redirect(url_for('home'))
 
-@App.route('/item/<int:item_id>', methods=['GET'])
+@App.route('/item/<int:item_id>', methods=['GET', 'POST'])
 def item(item_id):
     form = BidForm()
     item = Item.query.get_or_404(item_id)
     offer = Offer.query.filter_by(item_id=item_id).order_by(Offer.id.desc()).first()
+    item.views = item.views+1
+    db.session.commit()
     return render_template('single-item.html', title=item.name, item=item, offerLen=len(item.offer), form=form)
 
 @App.route('/my-items/<int:user_id>', methods=['GET'])
