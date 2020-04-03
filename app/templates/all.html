@@ -12,12 +12,16 @@
     </a>
     {% endfor %}
     </div>
-    {% for page in items.iter_pages() %}
-        {% if page %}
-            <a href={{url_for('all', page=page)}}>{{page}}</a>
-        {% else %}
-            ...
-        {% endif %}
-    {% endfor %}
+    <div class="d-flex justify-content-center">
+        <div class="pagenation">
+            {% for page in items.iter_pages() %}
+                {% if page %}
+                    <a class="btn btn-outline-secondary" href={{url_for('all', page=page)}}>{{page}}</a>
+                {% else %}
+                    ...
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
     
 {% endblock content%}
