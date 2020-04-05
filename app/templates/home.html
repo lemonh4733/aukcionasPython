@@ -1,6 +1,35 @@
 {% extends 'layout.html' %}
 {% block content %}
-    <h1>{{title}}</h1>
+    <div class="search">
+        <form action="/search" method="POST">
+            <select name="cat" id="searchselect">
+                <option value="0" selected>Category</option>
+                <option value="0">NEVEIKIA!!!</option>
+                <option value="0">NEVEIKIA!!!</option>
+                <option value="0">NEVEIKIA!!!</option>
+                <option value="0">NEVEIKIA!!!</option>
+                {% for cat in categories %}
+                    <option value={{cat.id}}>{{cat.cat_name}}</option>
+                {% endfor %}
+            </select>
+            {% if form.search.errors %}
+                {{form.search(id="searchbar", class="is-invalid w-75", placeholder="Search..")}}
+                <div class="invalid-feedback">
+                    {% for error in form.search.errors %}
+                    <span>{{error}}</span>
+                    {% endfor %}
+                </div>
+            {% else %}
+                {{form.search(id="searchbar", class="w-75", placeholder="Search..", list="name")}}
+            {% endif %} 
+            <datalist id="name" class="datalist w-100">
+                {% for item in datalist %}
+                    <option value={{item.name}}>{{item.name}}</option>
+                {% endfor %}
+            </datalist>
+            <button type="submit" id="searchbtn"><i class="fas fa-search"></i></button>
+        </form>
+    </div>
     <hr>
     <h2>New</h2>
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">

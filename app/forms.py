@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, BooleanField, FileField, IntegerField
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, FileField, IntegerField, SelectField
 from flask_wtf.file import FileField, FileAllowed
-from wtforms.fields.html5 import DateField
+from wtforms.fields.html5 import DateField, TimeField
 from wtforms.validators import DataRequired, Length, Email, EqualTo
 from datetime import datetime
 
@@ -23,9 +23,12 @@ class AddItemForm(FlaskForm):
     country = StringField('Country', validators=[DataRequired(), Length(min=4, max=80)])
     min_price = IntegerField('Minimum Price', validators=[DataRequired(), Length(min=4, max=80)])
     auction_image = FileField('Photo', validators=[DataRequired()])
-    end_day = DateField(label='End time',validators=[DataRequired()],format = "%Y-%m-%d")
-    time = IntegerField('Time', validators=[DataRequired(), Length(min=1, max=20)])
+    end_day = DateField(label='End time',validators=[DataRequired()],format = "%Y-%m-%d", default=datetime.now())
+    time = TimeField('Time', validators=[DataRequired(), Length(min=1, max=20)], default=datetime.today())
     submit = SubmitField('Add')
 class BidForm(FlaskForm):
     offer = IntegerField('Enter your bid', validators=[DataRequired(), Length(min=1, max=20)])
     submit = SubmitField('Add')
+class SearchForm(FlaskForm):
+    search = StringField('Search..')
+    submit = SubmitField('Search')

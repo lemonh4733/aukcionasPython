@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <h1>{{title}}</h1>
+    <hr>
+    <div class="row items">
+    {% for item in items %}
+    <a href={{url_for('item', item_id=item.id)}} style="background-image: url({{url_for('static', filename='images/'+item.auction_image)}}); background-size: cover;" class="item col-md-3">
+        <p class="price">Minimum Price: <span class="font-weight-bold">{{item.min_price}}€</span></p>
+        <div class="overlay">
+            <h3 class="text-white">{{item.name.capitalize()}}</h3>
+        </div>    
+    </a>
+    {% endfor %}
+    </div>
+
+    
+{% endblock content%}

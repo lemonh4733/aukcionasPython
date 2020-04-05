@@ -6,12 +6,13 @@
         </div>
         <div class="col-8">
             <h3>{{title.capitalize()}}</h3>
-            <p class="text-muted">{{item.category}}</p> 
-            <p><span class="font-weight-bold">Time left</span>:   {{item.end_day}}</p>
+            <p class="text-muted">{{category.cat_name}}</p> 
+            <p><span class="font-weight-bold">Time left</span>: <span id="demo"></span><br>
+                <small class="text-muted time">( {{item.end_day}} )</small></p>
             <div class="bid">
                 <div class="container">
                         <h3>{{item.min_price}}€ <a style="font-size: 18px;" href={{url_for('offers', item_id=item.id)}}>({{offerLen}})</a></h3>
-                        {% if current_user.is_authenticated %}
+                        {% if current_user.is_authenticated and time < item.end_day%}
                                 <form action={{url_for('offer', item_id=item.id)}} method="POST">
                                     {% if form.offer.errors %}
                                         {{form.offer(class="form-control is-invalid")}}
@@ -28,10 +29,13 @@
                         {% endif %}
                 </div>
             </div>
-            <h3 class="infobar bg-info text-white">Info:</h3>
+            
+            <h3 class="infobar text-white">Info:</h3>
             <p> <span class="font-weight-bold">Country</span>: {{item.country}}</p>
             <p> <span class="font-weight-bold">Description</span>: {{item.description}}</p>
             <p><span class="font-weight-bold">Views</span>:   {{item.views}}</p>
         </div>
     </div>
+    
+    <script src="/static/js/timer.js"></script>
 {% endblock content%}

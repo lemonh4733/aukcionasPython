@@ -13,9 +13,9 @@
         <tbody>
         {% for ofr in offers %}
           <tr>
-            <td>{{ofr.usr_offer.username}}</td>
-            <td>{{ofr.usr_offer.email}}</td>
-            <td><a class="text-white" href={{url_for('item', item_id=ofr.offer.id)}}>{{ofr.offer.name.capitalize()}}</a></td>
+            <td>{{ofr.username}}</td>
+            <td>{{ofr.email}}</td>
+            <td><a class="text-white" href={{url_for('item', item_id=ofr.id)}}>{{ofr.name.capitalize()}}</a></td>
             <td>{{ofr.price}}</td>
           </tr>
           {% endfor %}

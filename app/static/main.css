@@ -7,7 +7,7 @@ img {
 .container:nth-child(2) {
   min-height: 50vh;
 }
-nav {
+nav, .infobar {
   background-color: rgb(226, 151, 12);
 }
 h3 {
@@ -105,6 +105,33 @@ body > div > div.banner > h2 {
   display: none;
   }
 }
+.search {
+  width: 90%;
+  margin: 0 auto;
+}
+#searchbar {
+  padding: 5px;
+  margin: 0;
+  height: 40px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: 1px solid #ce8643;
+}
+#searchselect {
+  color: #fff;
+  background-color: #ce8643;
+  margin: 0;
+  height: 40px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border: 1px solid #ffffff;
+}
+#searchbtn {
+  background-color: transparent;
+  border: none;
+}
+
+
 footer {
   margin: 120px 0 0 0;
   background-color: #414040;

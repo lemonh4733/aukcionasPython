@@ -24,16 +24,11 @@
             </div> <!-- form-group end.// -->
         <div class="form-group">
             <label>{{form.category.label()}}</label>   
-            {% if form.category.errors %}
-            {{form.category(class="form-control is-invalid")}}
-            <div class="invalid-feedback">
-                {% for error in form.category.errors %}
-                <span>{{error}}</span>
+            <select class="form-control" name="category">
+                {% for cat in categories %}
+                    <option value={{cat.id}}>{{cat.cat_name}}</option>
                 {% endfor %}
-            </div>
-        {% else %}
-            {{form.category(class="form-control")}}
-        {% endif %} 
+            </select>
         </div> <!-- form-group end.// -->
 
         <div class="form-group">
